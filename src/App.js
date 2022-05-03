@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Paths from './paths';
+
+import { useEffect } from 'react';
+
+import Provider from 'pages/Provider';
+
+import ScriptTag from 'react-script-tag';
 
 function App() {
+/*
+    // useEffect para carregar o script do menu responsivo
+    useEffect(() => {
+      const script = document.createElement('script');
+  
+      script.src = "./js/script.js";
+      script.async = true;
+  
+      document.body.appendChild(script);
+      
+      return () => {
+        document.body.removeChild(script);
+      }
+  
+    }, []);
+
+*/
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <ScriptTag type="text/javascript" src="./js/script.js" />
+    <Provider>
+      <Paths />
+    </Provider>
+    </>
   );
 }
 
