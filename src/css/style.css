@@ -2007,55 +2007,131 @@ nav {
 .btn {
   display: inline-block;
   color: #F7F9FC;
+  -webkit-transition: .6s ease;
+  transition: .6s ease;
   padding: 8px 24px;
+  text-align: center;
+  border: 0;
   background: linear-gradient(224.78deg, #5390E3 8.12%, #1357B3 92.21%);
   border-radius: 4px;
-}
-
-a {
-  text-decoration: none;
   font-family: 'Rubik', sans-serif;
   font-size: 16px;
   line-height: 26px;
   font-weight: 200;
+  position: relative;
+}
+
+@media screen and (max-width: 960px) {
+  .btn {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 200;
+    padding: 16px 24px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .btn {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 200;
+    padding: 16px 24px;
+  }
+}
+
+.btn:hover {
+  opacity: .8;
+}
+
+a {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 200;
+  text-decoration: none;
   color: #F7F9FC;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.link-title {
+  text-decoration: none;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.link-title:hover {
+  text-decoration: underline;
+}
+
+.link {
+  color: #1B69D2;
+}
+
+.link-footer {
+  padding: 8px 8px 8px 8px;
   -webkit-transition: .7s ease;
   transition: .7s ease;
 }
 
-a:hover {
-  opacity: 0.7;
+.link-footer:hover {
+  padding: 8px 8px 8px 16px;
 }
 
 input {
   accent-color: #1B69D2;
 }
 
-input,
-select,
-option,
-textarea {
+/*
+input[type=text]{
+  padding: 8px 12px;
+  background-color: $black-light;
+  border: 0;
+  border-radius: 4px;
+  color: $white-light;
+
+  @include typeface-2(p3, desktop);
+}
+*/
+input, select, option, textarea {
   padding: 10px 12px;
   background-color: #151B26;
   border: 0;
   border-radius: 4px;
-  width: 100%;
   color: #F7F9FC;
+  width: 100%;
   font-family: 'Rubik', sans-serif;
   font-size: 16px;
   line-height: 26px;
   font-weight: 200;
 }
 
+input[type=date], select, option {
+  height: 44px;
+}
+
+/*
+select{
+  appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+*/
 .btn-search {
   cursor: pointer;
   height: 48px;
   width: 56px;
+  background-image: url("../svg/icon-search.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
   -webkit-transform: translate3d(-6px, 0, 0);
           transform: translate3d(-6px, 0, 0);
-  background-image: url("../../svg/icon-search.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
   background-color: #151B26;
   border: 0;
   border-radius: 4px;
