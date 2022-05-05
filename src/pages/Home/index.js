@@ -1,12 +1,53 @@
-import start from '../../svg/icon-star.svg';
+
 // Components
 import Hero from '../Home/Components/Hero';
 import Banner from '../Home/Components/Banner';
 import Card from '../Home/Components/Card';
 import Main from '../Home/Components/Main';
 
+// Figuras
+import start from '../../svg/icon-star.svg';
+
+// API
+import api from '../../services/api';
+
+// Hooks
+import { useState, useEffect } from 'react';
+
 
 const Home = () => {
+
+    // Variáveis de estado
+    const [main, setMain] = useState([]);
+    const [mostseen, setMostseen] = useState([]);
+    const [banner, setBanner] = useState([]);
+
+
+    
+    useEffect(() => {
+
+        api.get('/posts?_limit=3')
+        .then((response)=>{
+          setMostseen(response.data);
+          //console.log(mostseen);
+        })
+    
+        
+        api.get('/posts?star=5&_limit=3')
+        .then((response)=>{
+          setMain(response.data);
+          //console.log(response.data);
+        })
+    
+    
+        api.get('/posts?_sort=date&_order=desc&_limit=1')
+        .then((response)=>{
+          setBanner(response.data);
+          console.log(response.data);
+        })
+    
+      }, []);
+
     return(
         <>
            <Hero />
@@ -27,9 +68,17 @@ const Home = () => {
 
                 <div className="grid-7">
 
-                <Main />
+                    {
 
-                <Main />
+                    main.map((item) => {
+                       return <Main key={item.id} content={item} />
+                    })
+
+                    }
+
+                    
+
+               
 
                 </div>
                </div>

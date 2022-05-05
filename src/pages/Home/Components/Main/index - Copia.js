@@ -30,16 +30,14 @@ const Main = ( {content}) => {
                     <p className="mt-1">
                         {content.resume}
                     </p>
-                    <div className="mt-2 flex-space">
-                    <div className="flex-start-row ">
+                    <div className="flex-start-row mt-3">
                         <div className="profile">
-                            <img src={user.ImageProfile} className="profile-img" alt="" />
+                            <img src={user.imageProfiler} className="profile-img" alt="" />
                         </div>
                         <div className="ml-2">
                             <h6 className="color-primary">{user.name} {user.surname}</h6>
-                            <h6 className="color-gray">{user.user}</h6>
+                            <h6 className="color-gray">{user.id}</h6>
                         </div>
-                    </div>
                     </div>
                 </div>
      </>
