@@ -3,7 +3,7 @@ import logo from '../../svg/blog-logo2.svg';
 const Footer = () => {
     return(
         <>
-        <section className="bg-section">
+        <section className="bg-section bb-black">
             <div className="row bb-black pb-3">
                 <div className="flex-center">
                     <img src={logo} alt="" className="icon-l mt-8" />

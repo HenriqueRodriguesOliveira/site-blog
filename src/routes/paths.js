@@ -25,7 +25,7 @@ const Paths = () => {
             <Route path="/post/:idPost" element={<Post />} />
             
 
-            <Route path="/search" element={<Search />} />
+            <Route path="/search/:word_search" element={<Search />} />
 
             <Route path="*" element={<NotFound />} />
 

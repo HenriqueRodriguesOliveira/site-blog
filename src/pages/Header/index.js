@@ -1,9 +1,40 @@
 import logo from '../../svg/blog-logo.svg';
 
 // Link
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+// Hooks
+import { useState } from 'react';
 
 const Header = () => {
+
+    const initialValueForm = {
+        search: ''
+    }
+
+    // Redirecionar
+    const navigate = useNavigate();
+
+    // Variáveis de estado
+    const [form, setForm] = useState(initialValueForm);
+
+    function onChange(event){
+       
+        // Desestruturação do nome e valor da propriedade do input do campo
+        const {value, name} = event.target;
+
+        // Pegando o valor antigo e adicionando o caracter novo 
+        setForm({...form, [name]: value})
+
+        
+    }
+
+    function handleSearch(e){
+       e.preventDefault();
+
+       navigate(`/search/${form.search}`);
+    }
+
     return(
         <>
         <header className="px-2 py-1">
@@ -21,8 +52,8 @@ const Header = () => {
 
         <div className="flex-start-row">
             <div className="search">
-                <form className="flex">
-                    <input type="text" name="search" placeholder="Buscar..." />
+                <form className="flex" onSubmit={handleSearch}>
+                    <input type="text" name="search" placeholder="Buscar..." onChange={onChange} />
                     <button className="btn-search"></button>
                 </form>
             </div>
