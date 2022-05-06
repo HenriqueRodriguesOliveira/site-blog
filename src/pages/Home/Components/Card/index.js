@@ -1,23 +1,26 @@
+import { Link } from "react-router-dom";
 
-const Card = () => {
+const Card = ( {content} ) => {
     return(
      <>
-        <div className="grid-4 card p-0 mt-4">
+        <div className="grid-4 card hidden p-0">
             <div className="thumb hidden">
-                <a href="">
-                    <img src="img/01.png" alt="" />
-                </a>
+                <Link to={"/post/" + content.id} className="p-0">
+                    <img src={content.imageUrl} alt="" />
+                </Link>
             </div>
-            <div className="mt-2 px-2">
-                <h6 className="color-gray">01 FEV 2022</h6>
-                <h6 className="uppercase color-primary">tecnologia</h6>
-                <h4>Os novos macbooks M1</h4>
-                <p className="mt-1">
-                    Lorem Ipsum is simply dummy text of the printing and 
-                    typesetting industry. Lorem Ipsum has been the 
+            <div className="p-2">
+                <h6 className="color-gray"> {content.date} </h6>
+                <h6 className="uppercase color-primary">{content.category}</h6>
+                <Link to={"/post/" + content.id} className="link-title">
+                    <h4 className="mt-1">{content.title}</h4>
+                </Link>
+
+                <p className="my-2">
+                    {content.resume} 
                 </p>
                 <div className="my-3">
-                    <a href="" className="link-simples link color-primary">Ler mais</a>
+                    <Link to={"/post/" + content.id} className="link p-0">Ler mais</Link>
                 </div>
             </div>
         </div>

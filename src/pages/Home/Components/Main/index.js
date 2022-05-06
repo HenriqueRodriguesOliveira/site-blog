@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 //Api
 import api from 'services/api';
 
+// Link
+import { Link } from 'react-router-dom';
+
 const Main = ( {content}) => {
 
     const [user, setUser] = useState([])
@@ -26,7 +29,7 @@ const Main = ( {content}) => {
                     <h6 className="color-gray">{content.date}</h6>
                     <h6 className="uppercase color-primary">{content.category}</h6>
 
-                    <h4>{content.title}</h4>
+                    <Link to={"/post/" + content.id} className="link-title">{content.title}</Link>
                     <p className="mt-1">
                         {content.resume}
                     </p>

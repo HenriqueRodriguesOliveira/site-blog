@@ -1,3 +1,6 @@
+// Header e Footer
+import Header from "pages/Header";
+import Footer from "pages/Footer";
 
 // Components
 import Hero from '../Home/Components/Hero';
@@ -14,6 +17,8 @@ import api from '../../services/api';
 // Hooks
 import { useState, useEffect } from 'react';
 
+// Link
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -50,6 +55,7 @@ const Home = () => {
 
     return(
         <>
+        <Header />
            <Hero />
 
            <section className="container">
@@ -76,10 +82,6 @@ const Home = () => {
 
                     }
 
-                    
-
-               
-
                 </div>
                </div>
             </section>
@@ -91,18 +93,24 @@ const Home = () => {
                 <h3 className='ml-2 mb-3'>Mais vistos</h3>
                 <div className='row'>
 
-                 <Card/>
-
-                 <Card/>
-
-                 <Card/>
+                {
+                    mostseen.map((item) => {
+                        return <Card key={item.id} content={item} />
+                    })
+                }
 
                 </div>
                 </section>
             </div>
 
-            <Banner/>
             
+            
+            {
+                    banner.map((item) => {
+                        return <Banner key={item.id} content={item} />
+                    })
+                }
+            <Footer />
         </>
     );
 }
